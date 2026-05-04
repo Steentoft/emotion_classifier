@@ -1,3 +1,5 @@
+from typing import Sequence
+
 import matplotlib.pyplot as plt
 import numpy as np
 from datasets import load_dataset
@@ -10,33 +12,37 @@ ds = load_dataset("dair-ai/emotion", "split")
 
 test = ds["train"]
 
-def tokenize_split(split):
+def tokenize_list(split):
     result = []
     for text in split:
-        result.append({ "text" : enc.encode(text["text"]), "label" : text["label"] })
-    return result
+        for word in text["text"].split():
+            result.append(word)
+    result = set(result)
+    return list(result)
 
-list = tokenize_split(test)
+tl = tokenize_list(test)
 
-tokens = []
-for t in list:
-    tokens.append(len(t["text"]))
+vocabulary = {}
+counter = 1
+for word in tl:
+    padding = 0
+    for w in vocabulary:
+        while vocabulary.get(w) == sum(enc.encode(word)) + padding:
+            padding += 1
 
-print(tokens)
+    vocabulary.update({word : sum(enc.encode(word)) + padding})
+    counter += 1
 
-print(np.median(tokens))
-print(np.std(tokens))
+vocabulary.update({"PAD" : 0})
 
-c = Counter(tokens)
+print(vocabulary)
 
-print(sorted(c.most_common()))
+rev_multidict = {}
+for key, value in vocabulary.items():
+    rev_multidict.setdefault(value, set()).add(key)
 
-x_val = [x[0] for x in sorted(c.most_common())]
-y_val = [x[1] for x in sorted(c.most_common())]
+print("test")
+print([key for key, value in rev_multidict.items() if len(value) > 1])
+print(len(rev_multidict))
+print(len(vocabulary))
 
-# plot:
-fig, ax = plt.subplots()
-
-ax.bar(x_val, y_val)
-
-plt.show()
