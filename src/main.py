@@ -1,6 +1,8 @@
-import numpy
+import matplotlib.pyplot as plt
+import numpy as np
 from datasets import load_dataset
 import tiktoken
+from collections import Counter
 
 enc = tiktoken.get_encoding("o200k_base")
 
@@ -17,18 +19,24 @@ def tokenize_split(split):
 list = tokenize_split(test)
 
 tokens = []
-for i in range(len(list)):
-    tokens.append(len(list[i]["text"]))
+for t in list:
+    tokens.append(len(t["text"]))
 
 print(tokens)
 
-print(numpy.median(tokens))
+print(np.median(tokens))
+print(np.std(tokens))
 
+c = Counter(tokens)
 
-dict = {}
-for text in test:
-    if len(text["text"]) in dict:
-        dict.append({ len(text["text"]) : 1 })
-    else:
-        dict[len(text["text"])] = dict[len(text["text"])] + 1
-print(dict)
+print(sorted(c.most_common()))
+
+x_val = [x[0] for x in sorted(c.most_common())]
+y_val = [x[1] for x in sorted(c.most_common())]
+
+# plot:
+fig, ax = plt.subplots()
+
+ax.bar(x_val, y_val)
+
+plt.show()
