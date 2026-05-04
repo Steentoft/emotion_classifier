@@ -25,13 +25,9 @@ tl = tokenize_list(test)
 vocabulary = {}
 counter = 1
 for word in tl:
-    padding = 0
-    for w in vocabulary:
-        while vocabulary.get(w) == sum(enc.encode(word)) + padding:
-            padding += 1
-
-    vocabulary.update({word : sum(enc.encode(word)) + padding})
+    vocabulary.update({word : counter})
     counter += 1
+    print(counter)
 
 vocabulary.update({"PAD" : 0})
 
