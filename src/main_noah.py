@@ -1,36 +1,74 @@
-from typing import Sequence
-
-import matplotlib.pyplot as plt
-import numpy as np
-from datasets import load_dataset
 import tiktoken
-from collections import Counter
+import torch
+from datasets import load_dataset
 
-enc = tiktoken.get_encoding("o200k_base")
+# Default encoder
+encoder = tiktoken.get_encoding("o200k_base")
 
-ds = load_dataset("dair-ai/emotion", "split")
-dns = load_dataset("dair-ai/emotion", "unsplit")
+# own created encoder that uses the same as deafult but added 2 special tokens
+ownEncoder = tiktoken.Encoding(
+        name = "o200k_base_own",
+        pat_str= encoder._pat_str,
+        mergeable_ranks= encoder._mergeable_ranks,
+        special_tokens= {
+            **encoder._special_tokens,
+            "<|pad|>": 200019,
+            "<|unk|>": 200020,
+            },
+        )
 
-test = ds["test"]
-train = ds["train"]
-validation = ds["validation"]
+def encodeTextTiktoken(text):
+    """ Returns tiktoken o200k_base_own text """
+    return ownEncoder.encode(text)
+
+def encodeAllSplitsTiktoken(dataset):
+    """ Takes a splitted dataset and returns a list of lists of ints for each split """
+    train = []
+    validation = []
+    test = []
+    for split in dataset:
+        for text in dataset[split]:
+            if split == "train":
+                train.append(encodeTextTiktoken(text["text"]))
+            elif split == "validation":
+                validation.append(encodeTextTiktoken(text["text"]))
+            elif split == "test":
+                test.append(encodeTextTiktoken(text["text"]))
+
+    return train, validation, test
+
+def convertLengthTiktoken(encodedList, maxLength):
+    """ Takes a encodedList and a maxLenght, and returns the encodedList with list that are either truncated or with padding """
+    result = []
+    for sequence in encodedList:
+        if len(sequence) == maxLength:
+            result.append(sequence)
+        elif len(sequence) > maxLength:
+            result.append(sequence[0:maxLength])
+        else:
+            result.append(sequence + [200019] * (maxLength - len(sequence)))
+    return result
+
+def convert2Tensor(ListPad):
+    """ takes a list with lists of same length and return the tensor """
+    return torch.tensor(ListPad, dtype = torch.long)
 
 
 
-def createVocab(split):
-    vocab = {"PAD" : 0, "Unknown" : 1}
+def createVocab(dataset):
+    vocab = {"<PAD>" : 0, "<UNK>" : 1}
     listText = []
     count = 2
-    for text in split["train"]:
-        for word in text["text"].split():
+    for split in dataset["train"]:
+        for word in split["text"].split():
             listText.append(word) 
     
     for word in listText:
-        vocab.update({word : count})
-        count += 1
+        if word not in vocab:
+            vocab[word] = count
+            count += 1 
 
     return vocab
-
 
 def encodeText(wordList, vocab):
     for i in range(len(wordList)):
@@ -40,12 +78,12 @@ def encodeText(wordList, vocab):
             wordList[i] = 1
 
 def encodeAllSplits(dataset):
-    fullVocabulary = createVocab(dns)
+    fullVocabulary = createVocab(dataset)
     trainSplit = []
     validationSplit = []
     testSplit = []
     for split in dataset:
-        for text in ds[split]:
+        for text in dataset[split]:
             temp = []
             for word in text["text"].split():
                 temp.append(word)
@@ -65,35 +103,61 @@ def encodeAllSplits(dataset):
 
     return trainSplit, validationSplit, testSplit 
         
-            
-encodeAllSplits(ds)
-exit()
-def tokenize_list(split):
+
+
+# tensor length = men + std (rounded up), 18 + 11.3 = 30
+
+def convertLength(listLists, n):
     result = []
-    for text in split:
-        for word in text["text"].split():
-            result.append(word)
-    result = set(result)
-    return list(result)
+    for lists in listLists:
+        newList = []
+        if len(lists) == n: 
+            newList = lists
+            result.append(newList)
+        elif len(lists) > n:
+            newList = lists[0:n]
+            result.append(newList)
+        else:
+            add = n - len(lists)
+            newList += lists + add * [0]
+            result.append(newList)
+    return result
 
-tl = tokenize_list(test)
+def createTensorFromMultipleLists(list1, list2, list3, n):
+    convertetList1 = convertLength(list1,n)
+    convertetList2 = convertLength(list2,n)
+    convertetList3 = convertLength(list3,n)
+
+    def longTensor(converted):
+        return torch.tensor(converted, dtype = torch.long)
+    return longTensor(convertetList1), longTensor(convertetList2), longTensor(convertetList3)
 
 
-vocabulary = {"PAD": 0, "Unknown": 1}
-counter = 2
-for word in tl:
-    vocabulary.update({word : counter})
-    counter += 1
+def main():
+    dataset = load_dataset("dair-ai/emotion", "split")
+    train, validation, test = encodeAllSplitsTiktoken(dataset)
+    train, validation, test = convertLengthTiktoken(train, 30), convertLengthTiktoken(validation, 30), convertLengthTiktoken(test, 30)
+    trainTensor, validationTensor, testTensor = convert2Tensor(train), convert2Tensor(validation), convert2Tensor(test)
+    print("train")
+    print(trainTensor)
+
+    print("\n")
+    print("validation")
+    print(validationTensor)
+    
+    print("\n")
+    print("test")
+    print(testTensor)
+    
+    print("\n")
+    # Shape should be [16000, 30]
+    print(trainTensor.shape)
+    # No unknown words in train tensor, so should return 0 
+    print((trainTensor == 200020).sum())
+    
+    print((validationTensor == 200020).sum())
 
 
-print(vocabulary)
-
-rev_multidict = {}
-for key, value in vocabulary.items():
-    rev_multidict.setdefault(value, set()).add(key)
-
-print("test")
-print([key for key, value in rev_multidict.items() if len(value) > 1])
-print(len(rev_multidict))
-print(len(vocabulary))
-
+if __name__ == "__main__": 
+    main()
+    
