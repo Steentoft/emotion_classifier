@@ -9,18 +9,7 @@ PAD_ID = 0
 UNK_ID = 1
 
 
-_baseEncoder = tiktoken.get_encoding("o200k_base")
-
-ownEncoder = tiktoken.Encoding(
-    name="o200k_base_own",
-    pat_str=_baseEncoder._pat_str,
-    mergeable_ranks=_baseEncoder._mergeable_ranks,
-    special_tokens={
-        **_baseEncoder._special_tokens,
-        "<|pad|>": 200019,
-        "<|unk|>": 200020,
-    },
-)
+enc = tiktoken.get_encoding("o200k_base")
 
 
 def pickDevice():
@@ -32,7 +21,7 @@ def pickDevice():
 
 
 def encodeTextTiktoken(text):
-    return ownEncoder.encode(text)
+    return enc.encode(text)
 
 
 def encodeAllSplitsTiktoken(dataset):

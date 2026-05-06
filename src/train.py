@@ -5,7 +5,7 @@ from data_prep import loadAndPrep, pickDevice
 from model1 import TransformerClassifier
 
 
-def main():
+def main(lr = 0.001, n_heads = 4, n_layers = 4):
     data = loadAndPrep()
     device = pickDevice()
     print(f"Using device: {device}")
@@ -16,14 +16,15 @@ def main():
     trainY = data["trainY"].to(device)
     valY = data["valY"].to(device)
 
-    config = {"d_model": 8, "d_key": 8, "n_heads": 4, "mlp_factor": 4, "n_layers": 4, "n_classes": 6}
+    config = {"d_model": 8, "d_key": 8, "n_heads": n_heads, "mlp_factor": 4, "n_layers": n_layers, "n_classes": 6}
     model = TransformerClassifier(data["vocabSize"], **config).to(device)
 
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     criterion = nn.CrossEntropyLoss()
 
     best_acc = 0.0
     best_state = None
+    per_epoch = 10
 
     for epoch in range(500):
         model.train()
@@ -33,14 +34,15 @@ def main():
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         optimizer.step()
 
-        model.eval()
-        with torch.no_grad():
-            vp = model(valX)
-            vacc = (torch.argmax(vp, dim=1) == valY).float().mean().item()
-        if vacc > best_acc:
-            best_acc = vacc
-            best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
-        print(f"Epoch {epoch+1}, Loss: {loss.item():.4f}, ValAcc: {vacc:.4f} (best {best_acc:.4f})")
+        if (epoch + 1) % per_epoch == 0:
+            model.eval()
+            with torch.no_grad():
+                vp = model(valX)
+                vacc = (torch.argmax(vp, dim=1) == valY).float().mean().item()
+            if vacc > best_acc:
+                best_acc = vacc
+                best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
+            print(f"Epoch {epoch+1}, Loss: {loss.item():.4f}, ValAcc: {vacc:.4f} (best {best_acc:.4f})")
 
     if best_state is not None:
         model.load_state_dict(best_state)

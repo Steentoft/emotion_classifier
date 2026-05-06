@@ -6,11 +6,11 @@ from data_prep import (
     convertLength,
     convert2Tensor,
     pickDevice,
-    ownEncoder,
+    enc,
     LABELS,
     MAX_LEN,
 )
-from model_1 import TransformerClassifier
+from model1 import TransformerClassifier
 
 
 def loadModel(path="model.pt", device=None):
@@ -27,7 +27,7 @@ def loadModel(path="model.pt", device=None):
 def predict(model, mapping, text, device, maxLength=MAX_LEN, debug=True):
     raw = encodeTextTiktoken(text)
     if debug:
-        pieces = [ownEncoder.decode([t]) for t in raw]
+        pieces = [enc.decode([t]) for t in raw]
         flags = ["UNK" if t not in mapping else "ok" for t in raw]
         print(f"raw ids:  {raw}")
         print(f"pieces:   {pieces}")
