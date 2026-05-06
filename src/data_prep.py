@@ -1,3 +1,4 @@
+from os import wait
 import tiktoken
 import torch
 from datasets import load_dataset
@@ -63,6 +64,11 @@ def convertLength(listLists, n):
 def convert2Tensor(padded):
     return torch.tensor(padded, dtype=torch.long)
 
+    
+
+def convert2Loader(tensor, targetTensor, batchSize=64, shuffle=False):
+    return torch.utils.data.DataLoader(torch.utils.data.TensorDataset(tensor, targetTensor),
+                                       batch_size=batchSize, shuffle=shuffle, num_workers=0, persistent_workers=False)
 
 def loadAndPrep(maxLength=MAX_LEN):
     dataset = load_dataset("dair-ai/emotion", "split")
@@ -87,9 +93,17 @@ def loadAndPrep(maxLength=MAX_LEN):
     valY = torch.tensor([row["label"] for row in dataset["validation"]], dtype=torch.long)
     testY = torch.tensor([row["label"] for row in dataset["test"]], dtype=torch.long)
 
+    trainLoader = convert2Loader(trainX, trainY, shuffle=True)
+    validationLoader = convert2Loader(valX, valY)
+    testLoader = convert2Loader(testX, testY)
+
+
     return {
+        "trainLoader": trainLoader,
+        "validationLoader": validationLoader,
+        "testLoader": testLoader,
         "trainX": trainX,
-        "valX": valX,
+        "valX": valX, 
         "testX": testX,
         "trainY": trainY,
         "valY": valY,
@@ -97,3 +111,5 @@ def loadAndPrep(maxLength=MAX_LEN):
         "mapping": mapping,
         "vocabSize": vocabSize,
     }
+    
+
