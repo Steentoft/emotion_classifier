@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from sklearn.metrics import f1_score
 
-from data_prep import loadAndPrep, PAD_ID
+from data_prep import loadAndPrep, PAD_ID, UNK_ID
 
 
 def masked_mean_pool(embeddings: torch.Tensor,
@@ -74,8 +74,17 @@ class TextBiGRU(nn.Module):
         return self.fc(hidden)
 
 
+def word_dropout(input_ids, p=0.1, unk_id=UNK_ID, pad_id=PAD_ID):
+    if p <= 0:
+        return input_ids
+    rand = torch.rand_like(input_ids, dtype=torch.float)
+    mask = (rand < p) & (input_ids != pad_id)
+    return torch.where(mask, torch.full_like(input_ids, unk_id), input_ids)
+
+
 def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
-         weight_decay=1e-2, patience=2):
+         weight_decay=1e-2, patience=2, word_drop_p=0.1, label_smoothing=0.1,
+         early_stop_patience=5):
     data = loadAndPrep()
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     print(f"Using device: {device}")
@@ -97,7 +106,7 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
     class_weights = counts.sum() / (num_classes * counts.clamp(min=1))
     class_weights = class_weights.to(device)
     print(f"Class weights: {class_weights.tolist()}")
-    loss_fn = nn.CrossEntropyLoss(weight=class_weights)
+    loss_fn = nn.CrossEntropyLoss(weight=class_weights, label_smoothing=label_smoothing)
 
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(
         opt,
@@ -108,6 +117,7 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
 
     best_f1 = 0.0
     best_state = None
+    epochs_no_improve = 0
 
     for epoch in range(epochs):
         model.train()
@@ -117,6 +127,8 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
         for batch, targets in data["trainLoader"]:
             batch = batch.to(device, non_blocking=True)
             targets = targets.to(device, non_blocking=True)
+
+            batch = word_dropout(batch, p=word_drop_p)
 
             opt.zero_grad()
             logits = model(batch)
@@ -164,6 +176,9 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
                 k: v.detach().cpu().clone()
                 for k, v in model.state_dict().items()
             }
+            epochs_no_improve = 0
+        else:
+            epochs_no_improve += 1
 
         current_lr = opt.param_groups[0]["lr"]
         print(
@@ -173,8 +188,13 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
             f"val acc {val_acc:.2f} | "
             f"macro F1 {macro_f1:.4f} | "
             f"best F1 {best_f1:.4f} | "
-            f"lr {current_lr:.2e}"
+            f"lr {current_lr:.2e} | "
+            f"no_improve {epochs_no_improve}"
         )
+
+        if epochs_no_improve >= early_stop_patience:
+            print(f"Early stop: no F1 improvement for {early_stop_patience} epochs.")
+            break
 
     if best_state is not None:
         model.load_state_dict(best_state)
