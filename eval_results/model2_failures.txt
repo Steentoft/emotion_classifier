@@ -1,0 +1,219 @@
+# Failures for models/model2.pt
+# Test acc: 0.8925
+# Format: [true=LABEL pred=LABEL] text
+
+[true=joy      pred=surprise] i explain why i clung to a relationship with a boy who was in many ways immature and uncommitted despite the excitement i should have been feeling for getting accepted into the masters program at the university of virginia
+[true=fear     pred=anger   ] i don t feel particularly agitated
+[true=joy      pred=surprise] i feel very honoured to be included in a magzine which prioritises health and clean living so highly im curious do any of you read magazines concerned with health and clean lifestyles such as the green parent
+[true=sadness  pred=love    ] i have tried to see what it would be like if i liked one of my girl friends but it has never really worked and i can only ever feel an emotional connection to them because they are my friends
+[true=joy      pred=surprise] i spent wandering around still kinda dazed and not feeling particularly sociable but because id been in hiding for a couple for days and it was getting to be a little unhealthy i made myself go down to the cross and hang out with folks
+[true=anger    pred=sadness ] i feel a bit stressed even though all the things i have going on are fun
+[true=surprise pred=fear    ] i am right handed however i play billiards left handed naturally so me trying to play right handed feels weird
+[true=joy      pred=love    ] i feel like i am in paradise kissing those sweet lips make me feel like i dive into a magical world of love
+[true=fear     pred=surprise] i was feeling weird the other day and it went away about minutes after i took my metformin
+[true=anger    pred=fear    ] when a friend dropped a frog down my neck
+[true=anger    pred=fear    ] i feel my heart is tortured by what i have done
+[true=fear     pred=anger   ] i feel agitated with myself that i did not foresee her frustrations earlier leading to the ending of our relationship
+[true=fear     pred=surprise] i looked at mabel this morning i named my left breast mabel my right one is hazel and i feel this weird mixture of anger and loss valerie wrote less than a month after her diagnosis
+[true=fear     pred=sadness ] i am going to have to check on in just a few minutes but there is this clock up above the screen that keeps ticking down the minutes i have left so am feeling a bit frantic
+[true=sadness  pred=fear    ] i got the sleep but if i could choose not to be woken up by an alarm i d definitely take that over anything it makes me feel so groggy
+[true=surprise pred=fear    ] i was so uncomfortable and feeling weird feelings but wasn t sure if they were contractions since i never really felt contractions with jared until they jacked me up with pitocin
+[true=anger    pred=sadness ] i really dont like quinn because i feel like she will just end up hurting barney and i hated the lame ted robin storyline
+[true=joy      pred=love    ] i feel that third situation pretty much sums up my feelings toward this title
+[true=joy      pred=sadness ] i did finally get it if you didn t laugh left me feeling delighted exhausted and just so privileged
+[true=joy      pred=surprise] i left my garmin on my bike so i was going to have to do this by feel coming out of transition its amazing hearing cheers and your adrenaline is just going crazy
+[true=joy      pred=love    ] i realized what i am passionate about helping women feel accepted and appreciated
+[true=joy      pred=sadness ] i gather supplies and start to check her progress via internal exam the head midwife prepares to start an iv and calmly asks others for more assistance i feel reassured by her calmness
+[true=love     pred=surprise] i was so impressed with the show especially for hs and i was moved by these talented kids but then again i feel very passionate about productions and music and theatre in schools so i am always happy to endorse many hs productions throughout their seasons during this time
+[true=fear     pred=surprise] i have a lot going on in my life and feel overwhelmed
+[true=anger    pred=fear    ] i took for granted a few weeks ago is really weird and makes me feel really agitated and frustrated
+[true=fear     pred=anger   ] i know what you mean about feeling agitated
+[true=sadness  pred=anger   ] i will nolonger tell anybody how i feel or what im thinking cause all it seems to do is get me more hated than i already am
+[true=fear     pred=surprise] i indicated then i was feeling quite overwhelmed with work responsibilities teaching traveling and writing
+[true=sadness  pred=anger   ] i feel stressed but i love the feeling of the calming spirit of my heavenly father and the feeling to keep working
+[true=joy      pred=love    ] i believe that feeling accepted in a non judgemental way can be healing
+[true=sadness  pred=anger   ] i do feel stressed
+[true=love     pred=joy     ] ive been feeling from my adoring fans that would be teh whole like of you who are my friends here i felt brave and excited and ventrured forth with guitar in hand to a local open mic night
+[true=joy      pred=love    ] i could feel his breath on me and smell the sweet scent of him
+[true=joy      pred=love    ] i suppose if one was feeling generous one could say i was stressed by the elevator ride
+[true=anger    pred=joy     ] i am writing and sharing here is much more about my own story and what i believe with all my heart the world needs to know the riches we have in god than me feeling angry towards or trying to bash the people and leaders and parents
+[true=joy      pred=love    ] i feel quite passionate about and that is how old should children be to undergo beauty treatments
+[true=anger    pred=sadness ] i love that this is a place a series with no real heroes and i love that the way the couples in these books fall in love feels just as violent and crazy as the place that they call home
+[true=joy      pred=surprise] i loved the feeling i got during an amazing slalom run whether it was in training or in a race
+[true=fear     pred=surprise] i began to feel very strange
+[true=sadness  pred=anger   ] i feel unprotected a class post count link href http reprogramming in process
+[true=fear     pred=surprise] i have moments where i just feel so overwhelmed that my eyes well up with tears
+[true=sadness  pred=fear    ] i don t want to tag people who think this is silly but if there are people out there who want to be tagged i wouldn t want to make them feel unwelcome
+[true=sadness  pred=anger   ] i cant help feeling this way
+[true=sadness  pred=fear    ] i feel quite helpless in all of this so prayer is the most effective tool i have because i have no answers and there is nothing else i can offer them right now
+[true=joy      pred=love    ] i believe that people should choose the causes they feel passionate about and do what they can and i have no right or desire to push my own charities as more worthy than another
+[true=joy      pred=love    ] i never feel like im not supporting
+[true=anger    pred=sadness ] i am feeling stressed and more than a bit anxious
+[true=fear     pred=sadness ] i feel about as helpless and superfluous as i did when jenn had elaine naturally
+[true=joy      pred=fear    ] i didn t really go looking for it but i can definately see where the enjorlas marius ship comes from though sadly i feel it s mostly one sided and that marius is nothing more than a rich schoolboy following his whims without thoughts to the concequences
+[true=love     pred=joy     ] i feel i should as a gracious gesture apologizing for my latest post about the osp and the rand license terms
+[true=sadness  pred=anger   ] i get people asking me what it feels like to be the most hated man in dallas county said assessor steve helm
+[true=love     pred=joy     ] i feel like my sweet company is finally coming together
+[true=joy      pred=love    ] i feel like i am not accepted here i and bucking this force that is coming from all quarters that tells me that something is wrong with me if i am not married with children
+[true=joy      pred=love    ] i also feel i have accepted my dark side and am finally realizing what of my dark side is healthy
+[true=joy      pred=love    ] i feel so blessed to be able to share it with you all
+[true=joy      pred=love    ] i feel accepted and loved by a community of derby girls that i helped to create
+[true=fear     pred=sadness ] i grabbed my dog and hugged her fiercly for the next hour or so until i began to feel a bit like myself again but i havent completly shaken the feeling and have been feeling rather depressed anxious all day
+[true=sadness  pred=fear    ] i found myself feeling inhibited and shushing her quite a lot
+[true=love     pred=sadness ] i cant tell you how many times in the four months we have been seeing each other seriously that we have had to have serious emotional talks because one or both of us was feeling tender
+[true=sadness  pred=anger   ] i justified in feeling slighted or am i just being ungrateful
+[true=sadness  pred=joy     ] i couldnt help feeling for him and this awful predicament he lives with on a daily and nightly basis and i was just so glad that once bel started to see the light he stuck it out and stood by daniel whilst no one else did including his family who im afraid i got really disgusted with
+[true=love     pred=sadness ] im sad if some people are unhappy about the flag for religious reasons but i know many religious people who do not feel it goes against their faith and they are very supportive
+[true=fear     pred=anger   ] i walked near the hotel and i felt very obvious and uneasy all the warnings about petty crime i read in the guidebook and maybe some residual from years ago left me feeling threatened
+[true=joy      pred=love    ] i feel so blessed to be married to him because he loves his stepchildren
+[true=joy      pred=love    ] i feel more faithful than ever
+[true=anger    pred=surprise] i don t follow too many people and i don t have too many followers however i have a feeling that the people that i am talking about may know who they are i m not trying to be rude i m just being real
+[true=love     pred=fear    ] i have so much going on in my life and am constantly running like crazy i can always steal a quiet moment to acknowledge this child and the overwhelming excitement and anticipation that i feel god is truly faithful and brings everything around
+[true=joy      pred=fear    ] i met my present boyfriend on a boat trip to england we had said that we would call each other when we got back to sweden we were not going to the same town in england as soon as i walked in he called from england as he could not wait till he came home
+[true=anger    pred=joy     ] i was playing a sport in an advanced pe class and many of the people were not advanced
+[true=sadness  pred=joy     ] i want to get back in the habit of blogging about all the cool fun things im up to but am also trying to get out of this rut of only writing about feeling shitty
+[true=surprise pred=fear    ] i feel thats just strange on wotcs behalf
+[true=fear     pred=surprise] i woke up today feeling kind of strange
+[true=sadness  pred=anger   ] i feel hated in cempaka
+[true=fear     pred=surprise] i wept while jackson slept feeling overwhelmed by the feeling that i don t want to die
+[true=joy      pred=love    ] i have to give it to men as women we complain a lot about the heals we have to wear but at least we can wear a dress and feel cool in the summer
+[true=anger    pred=sadness ] i feel like i should be listening to chinesepod and working on my mandarin but what i really want to listen to is the savage love podcast or car talk
+[true=joy      pred=love    ] i think your viewers tonight will enjoy the show coming from malm they will like some things be less fond of other things but hopefully they will feel entertained and smitten and feel the urge to cast a vote regardless if your country is voting tonight or not
+[true=fear     pred=sadness ] i lift different now because it hurt so bad the day it happened that i can t get it out of my mind and i feel myself being a bit timid
+[true=joy      pred=love    ] i couldnt feel more blessed at this time
+[true=sadness  pred=anger   ] i want to feel less stressed
+[true=joy      pred=love    ] i feel very strongly about supporting charities that help children
+[true=joy      pred=love    ] i also feel the need to say thank you to the boy who helped me realize the above for showing me an absolutely splendid and hot night
+[true=sadness  pred=fear    ] i cant help but think if id just shut up if id just not made a big deal of what was essentially two adults meeting at the same table for a hot beverage then perhaps i wouldnt have spent the bulk of the weekend feeling like a stupid shit
+[true=joy      pred=love    ] i have nostalgic feelings i have met wonderful people online and the online internet is for me like my second life
+[true=sadness  pred=anger   ] i sat up to embrace them and realised that two hours spent shaking my thang in an eighties bar celebrating the fact i am one year closer to death had left my ageing body feeling punished and my normally pink feet blackened
+[true=joy      pred=sadness ] i go again sometime in the future id probably just stick with the african tram which comes with entry fee maybe id spring for the asian tram and if i was feeling particularly brave i might even try the hot air balloon which i thought was reasonable priced at
+[true=joy      pred=love    ] i am not proud to be british i am not glad to be young and i most certainly do not feel blessed by opportunity
+[true=anger    pred=sadness ] whenever i put myself in others shoes and try to make the person happy
+[true=anger    pred=fear    ] i wasn t sure what this gnawing feeling i was having but i was getting agitated sitting around doing nothing
+[true=fear     pred=sadness ] i feel unprotected even while travelling alone
+[true=joy      pred=sadness ] im learning mandarin chinese now in preparation for a trip to tianjin this september and already only four lessons in i feel like i have a handle on the basics and im thrilled to have some insight into a language that had always been a total mystery to me
+[true=fear     pred=surprise] i think and it feels a little weird
+[true=love     pred=joy     ] i feel my truth is accepted and not judged because well
+[true=joy      pred=fear    ] i found myself giggling and clapping my hands more often than a five year old at the ice cream wagon and there was never a point where i didnt feel genuinely entertained
+[true=surprise pred=fear    ] i guess it doesn t help that i got sick on black friday and was forced against my will to maintain my promise to stay in but being back in the city feels amazing
+[true=joy      pred=love    ] i did feel rather like a celebrity and widget stood and let herself be admired while she drank orange squash from my cup
+[true=love     pred=joy     ] i feel like if people accepted that wed get along a lot better
+[true=joy      pred=surprise] ive been soo excited for him to feel and it was amazing
+[true=joy      pred=love    ] i feel so blessed to have friends i can come to
+[true=fear     pred=surprise] i am feeling very strange but this is also present movement and i am trying this as one of way
+[true=anger    pred=fear    ] i have felt the need to write out my sometimes anxious feelings impatient thoughts lists of things that still should could be done before this baby arrives
+[true=joy      pred=love    ] i love doing yoga i love learning about it i love what it has made me and when i think about sharing that with yoga students of my own i feel so hopeful and excited
+[true=joy      pred=love    ] i feel the need to pimp this since raini my beloved rocky casting director loves it so much
+[true=anger    pred=fear    ] i was lying in bed last night after a day of making experiments from the usual suspects fabric plastic and feeling agitated that my issues with proper presentation had not made any headway over the course of a mere six hours
+[true=joy      pred=sadness ] i wonder if im vain because i love dressing up and attempting to be fashionable but then i realized that there is nothing wrong with dressing so that you feel pretty cute smart whatever
+[true=joy      pred=surprise] i found myself being amazed at how mid s f would feel a tad cool as if perhaps a sweatshirt wouldve been a good idea
+[true=joy      pred=sadness ] i really enjoy cabernet for how aggressive the flavors tend to be and while this isnt exactly a light wine it still has a general congenial feel to it that i find a very pleasant
+[true=love     pred=joy     ] i feel cared for and accepted
+[true=joy      pred=anger   ] i feel like i m part of the problem when i call out missy jane s trusting an angel cover for not airbrushing out all the real skin on the cover model s
+[true=sadness  pred=fear    ] i am only providing the link as a courtesy to its author but it was all about stuff that was either before my time or i never experienced even if i lived when it was available so i couldn t feel emotional about any of it
+[true=love     pred=anger   ] i do feel terribly remourseful that i didnt stay faithful to my plans and get him sooner
+[true=joy      pred=love    ] i chant the invocation and feel his force supporting me as i teach
+[true=joy      pred=love    ] i grew up around this feeling living only minutes away from the gorgeous atlantic ocean in brazil so its probably no surprise i grew fond of the ocean
+[true=joy      pred=surprise] i started walking again yesterday and it feels amazing
+[true=anger    pred=fear    ] im not sure if its just me who feels this way or if its everyone but tortured souls dont make for the best boyfriends
+[true=sadness  pred=fear    ] i have not conducted a survey but it is quite likely that many of them feel as assaulted by onel s demons and other creators as i would have felt had the walls been covered only with eminent figures patriotic heroes and epic deeds
+[true=surprise pred=love    ] i ran errands to buy cora a few newborn sized sleepers i had not previously made any newborn sized babies and went out to lunch to celebrate how great i was feeling i feel amazing no pain no pain meds and moving around almost completely normally at days out
+[true=joy      pred=fear    ] i like to think i present myself and the life and times of the working mum to a good standard and if i ever do miss a apostrophe or miss spell a particular word please feel free to call me on it
+[true=fear     pred=surprise] i know how that feels weird right
+[true=joy      pred=love    ] i feel for all of you who have been supporting me is so extreme there would be no way to put a number value on it
+[true=sadness  pred=anger   ] i reread for comfort the familiarity of a book whose plot i already know is easier to deal with when im feeling stressed than a new to me book with all its unknowns
+[true=anger    pred=fear    ] i know how it feels to be tortured
+[true=joy      pred=sadness ] i don t think we re to that point yet and i foresee a lot of traffic between my bed and the crib until he is old enough to no longer feel that i am the only acceptable answer in the dark
+[true=love     pred=joy     ] i feel affirmed gracious sensuous and will have less self doubt when a href http generations
+[true=sadness  pred=joy     ] when i heard the last regulation of the socialist govrenment concerning pensions
+[true=joy      pred=love    ] i feel that passionate about
+[true=joy      pred=fear    ] i didnt have to drink as much last time as people who get ultrasounds at weeks or before do but it was still enough that i was feeling distinctly eager for the toilet by the end
+[true=fear     pred=surprise] i would always have this song stuck in my head after a bombing or incident and then i would feel a bit weird about it because if you dont really pay attention to the lyrics it sounds like such a happy song not the type youre supposed to hum on difficult days
+[true=joy      pred=surprise] i am on so many social networks right now and sometimes i feel like that i am pretty talked out
+[true=anger    pred=sadness ] i noticed that i was feeling very stressed and anxious and i just couldnt quite put my finger on why
+[true=joy      pred=love    ] ive come to feel about a supporting character in one of my all time favorite films giant
+[true=sadness  pred=surprise] i have to keep fighting for my life until i truly run out of fight and i ve been close enough to that twice to know a bit about what it feels like and we re not there yet no matter how despairing all this feels
+[true=sadness  pred=love    ] i mean is that when we are true to ourselves and our style and we see a reflection we like in the mirror all of the ugliness in society that is there to make us feel ugly or inadequate based on our looks suddenly becomes completely annulled
+[true=joy      pred=surprise] i feel i m handling it well and i m enjoying it he said
+[true=sadness  pred=joy     ] im far ahead than the released tankouban that are sold here it just wont be the same anymore and the wait wont be as thrilling but damn me if i even feel slightly remorseful for that
+[true=sadness  pred=fear    ] i could maybe get away with simpler folk melodies on some of the songs something fairly predictable but if its just me and a guitar it would end up feeling dull
+[true=sadness  pred=joy     ] i first started reading city of dark magic i thought it would be a challenge to actually enjoy it since i felt like the content about famous classical music was over my head but luckily after plowing through the first chapter i became more confident and started feeling less dumb
+[true=joy      pred=surprise] i am now feeling delighted but daunted
+[true=sadness  pred=joy     ] i always make things harder which im not going to lie i sometimes have a way of complicating the very simple however a new baby is a pretty big undertaking and from this comment and many many others i feel like he sees himself as being disturbed very little
+[true=fear     pred=anger   ] i that it feels like she is being tortured
+[true=love     pred=surprise] i just finished watching a korean drama secret garden omg and am feeling the way girls do after such shows a mixture of hope and a little tug of truth that says those romantic gestures only exist in films
+[true=joy      pred=sadness ] i am feeling stronger recharged and excited to get back into my runs
+[true=surprise pred=joy     ] i know it can take weeks for a book to go free on amazon and barnes amp noble and in this age where cents can buy a full length ebook i feel a little funny charging even cents for a work that is almost certain to be under pages possibly under
+[true=surprise pred=fear    ] ive blogged and i feel strange about it
+[true=fear     pred=surprise] i started to feel so overwhelmed
+[true=joy      pred=love    ] i don t really know the oldest one very well and his mothering mother seems to feel that he is not sweet
+[true=joy      pred=sadness ] i know she shes the only one who provides income to my family right now but it feels like shes putting it up in our face that shes supporting us
+[true=sadness  pred=anger   ] i met my ex briefly just to catch up because he was leaving for sarawak lololol it was good seeing him again and now i feel so awkward typing this
+[true=joy      pred=love    ] i have a family i can feel passionate about and completely comfortable with
+[true=love     pred=anger   ] i walked to school he felt the bounce in his step the overjoyed feelings of youth and the thrill of excitement of coming to school and meeting his beloved friends
+[true=love     pred=anger   ] i was like should i feel sweet or feel offended
+[true=joy      pred=love    ] i don t know about you but i m feeling amp blessed
+[true=fear     pred=surprise] i li pouring down in the corner under the moonlight shines on his face i saw his pale face and mouth with half closed eyes bear people feel more distressed
+[true=sadness  pred=anger   ] i feel anger i feel sad i feel joy and i feel other emotions too but will stick to a few
+[true=fear     pred=surprise] i feel so weird but i guess kind of happy
+[true=joy      pred=love    ] im feeling generous this week
+[true=fear     pred=anger   ] i seek out pain to feel tortured just to feel something
+[true=fear     pred=surprise] i already feel he is using us it feels weird because i havent even done anything there yet but i feel it coming like ministry coming at me
+[true=fear     pred=anger   ] i decide that picking the easy route would get me nowhere and i feel like other people want me tortured so i follow the blue path
+[true=fear     pred=surprise] i could have expected in every way and i was feeling a bit overwhelmed at that point how quickly life changed in the past weeks
+[true=fear     pred=sadness ] ill get mopey about what occured in the past but the frequency of that has been decreasing in a logarythmic scale and even then its only when im feeling self doubtful which is also occuring less
+[true=anger    pred=sadness ] i actually was in a meeting last week where someone yelled at an older lady because her phone rang i felt terrible for her your boss treats you unfairly or in this case someone makes you feel you are not worth anything is only allowing those who offended to steal your joy
+[true=joy      pred=love    ] i like the fresh feeling of sweet he gave me
+[true=fear     pred=surprise] i am finally starting to feel like i have a real life here in san vicente and i am no longer on a strange confusing extended vacation
+[true=joy      pred=love    ] i don t know about you but it makes me feel generous
+[true=sadness  pred=fear    ] i feel helpless to regain a safe feeling
+[true=sadness  pred=joy     ] i feel lonely who make me feel special when i feel useless who are always kind and sweet to me
+[true=sadness  pred=fear    ] i have to be honest and say that the first two chapters sort of overwhelmed me and i wasnt sure that i was going to be able to follow everything and was feeling kind of dumb
+[true=sadness  pred=anger   ] i lay here typing this hate blog entry that no one would read although i want the whole world to read and praise me like dickens i feel so miserable
+[true=joy      pred=love    ] i am not feeling so generous and he is sent to the sofa where he glares at me for the next six hours
+[true=anger    pred=sadness ] i don t really believe because i walked through all the water stops in my first marathon and i actually don t think that walking is bad but dammit i was feeling stubborn and i wanted to get home and needed to be motivated by something
+[true=joy      pred=love    ] i firmly believe that the only way to go about this craft is to write the book that you feel passionate about and not to worry about finding the book that the mass audience desires
+[true=love     pred=sadness ] i don t want to hurt anybody s feelings and i certainly don t want to betray any amount of trust but i do want to entertain and i do want to be faithful to myself my thoughts and the topics at hand
+[true=joy      pred=love    ] i feel as though i have merely accepted what has been done and that no matter what time has gone by it will always be with me
+[true=sadness  pred=fear    ] i suppose we all feel a little inhibited when it comes to picking up the phone and calling someone we re not very close to anymore
+[true=joy      pred=love    ] i felt it had a slight bitterness in the finish that detracted from its oily mouthfeel and sweet entry
+[true=joy      pred=love    ] i feel like he s a lot more playful open with me than other girls i know he s friends with
+[true=anger    pred=joy     ] i needed some space i needed to grow i was in the midst of some serious change and ok yes they had also hurt my feelings pretty badly and i was a bit spiteful
+[true=joy      pred=love    ] i feel very cheated since i am supporting the family and doing all the other stuff while he spends hours a day gaming
+[true=anger    pred=sadness ] i wont lie this week has been abit of a difficult week for me ive been feeling very stressed and anxious this week plus i think im coming down with the flu but it has definately helped me to appreciate the little things
+[true=anger    pred=joy     ] i am not feeling the love towards myself and that becomes somewhat of a vicious circle resulting in me just feeling lazy complacent and in general just de motivated
+[true=love     pred=joy     ] i cant write a review for a book i adore unless i am feeling in the adoring mood at that moment
+[true=sadness  pred=fear    ] im afraid to call the guy from yesterday because i think hell be angry because i think my boss is angry because i dont communicate with him and i feel like im doing a shitty job and i project my fears onto him
+[true=fear     pred=surprise] i become someone else and i make random awkward jokes honestly this feeling is so strange is this what it feels like to be on top of a cloud
+[true=sadness  pred=anger   ] i feel like that im hated by most of the girls is it becoz im a good dancer
+[true=sadness  pred=anger   ] i work well with almost every client ive ever been in contact with because i know what it means to feel depressed angry frustrated irritated hopeless and apathetic because i feel it daily
+[true=joy      pred=love    ] i just tell people i feel like one sweet southern mess right now
+[true=joy      pred=love    ] i felt like id developed feelings for this guy thus explaining why id even follow this guy like a faithful puppy dog and he never knew
+[true=love     pred=sadness ] i have not had any serious injuries or setbacks other than that infection in my foot a couple of months ago but i have noticed that my knees and inner foot have started to ache and feel tender during the longer runs
+[true=fear     pred=surprise] i was stressed about my job search and apartment hunting and i was just feeling overwhelmed with everything that was going on
+[true=sadness  pred=anger   ] im happy to report im still not feeling terribly stressed
+[true=fear     pred=surprise] i did feel slightly weird in that costume
+[true=anger    pred=sadness ] i didnt want to be spending my days working in a job that i didnt enjoy or to come home feeling stressed and tired and not be able to give my daughter the attention she deserved
+[true=joy      pred=love    ] i don t know how else to describe it except to say that i had the same feeling about three weeks before my beloved grandmother passed away
+[true=joy      pred=love    ] i have this grave feeling it will not be back until tomorrow and strangely enough i have accepted it
+[true=anger    pred=joy     ] when i learnt that my best friend had failed the exams
+[true=sadness  pred=anger   ] i don t care if any of you read this but this is just what i feel when i m around you guys i feel hated
+[true=sadness  pred=anger   ] i also know that if today i refuse to hate jews or anybody else it is because i know how it feels to be hated
+[true=joy      pred=surprise] i don t always feel like i have amazing style and most days i choose comfort over anything else but there is one thing that i feel makes all the difference in how i feel about myself and that is makeup
+[true=sadness  pred=anger   ] i hate these feelings in my heart i hate that work stressed me out i hate that cornelius wont let me get my way im frustrated lord
+[true=joy      pred=surprise] i feel so amazing musicjuzz
+[true=anger    pred=sadness ] i need a break or im feeling stressed out
+[true=sadness  pred=joy     ] i had my carrot sticks not on the program they want you to eat super low gi veggies and carrots are relatively high in sugar however they were convenient and later another shake but i was still feeling pretty lousy
+[true=joy      pred=love    ] i feel like some of you have pains and you cannot imagine becoming passionate about the group or the idea that is causing pain
+[true=joy      pred=love    ] i am not sure how i feel i think because i felt like i already knew i have already sort of accepted it
+[true=surprise pred=fear    ] im ok with that it feels a little weird
+[true=joy      pred=love    ] i never dreamed i would be so busy so soon in the new year but i am loving it and feeling so very gracious and fortunate
+[true=fear     pred=sadness ] i feel inside cause life is like a game sometimes but then you came around me the walls just disappeared nothing to surround me and keep me from my fears im unprotected see how ive opened up youve made me trust
+[true=fear     pred=anger   ] ive started feeling like almost nothing is worth getting agitated about
+[true=sadness  pred=anger   ] i didn t mean to get angry with you bommie i just can t control my feelings hellip i just hated myself why i am like this the dara who can t get over with that b
+[true=joy      pred=surprise] i was gaining weight getting a lot stronger and feeling amazing
+[true=joy      pred=love    ] i check you when you re sleeping feel your nose and toes to be sure you aren t too hot or cold
+[true=sadness  pred=surprise] i dont want to always be judgmental of particular men or scenarios that i often see in this area but with so much trafficking forced sex work and what basically amounts to slavery its hard not to feel slightly embittered and disillusioned
+[true=anger    pred=fear    ] im feeling cooped up and impatient and annoyingly bored
+[true=fear     pred=surprise] i feel all weird when i have to meet w people i text but like dont talk face to face w

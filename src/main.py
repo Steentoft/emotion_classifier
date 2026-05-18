@@ -2,6 +2,7 @@ from train import main as trainTransformer
 from model2 import main as trainBiGRU
 from visualize import main as vm
 from predict import main as pm
+from eval_all import main as eam
 
 
 def _bad(choice):
@@ -13,6 +14,7 @@ def main():
     print("1: analyze data")
     print("2: train model")
     print("3: validate model")
+    print("4: evaluate all models on test set")
 
     choice = input("choose: ").strip()
 
@@ -100,6 +102,10 @@ def main():
             pm(paths[which])
         else:
             _bad(which)
+
+    elif choice == "4":
+        eam()
+
     else:
         _bad(choice)
 
