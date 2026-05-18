@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from sklearn.metrics import f1_score
 
 from data_prep import loadAndPrep, pickDevice, PAD_ID
 
@@ -76,7 +77,7 @@ class TextBiGRU(nn.Module):
 def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
          weight_decay=1e-2, patience=2):
     data = loadAndPrep()
-    device = pickDevice()
+    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     print(f"Using device: {device}")
     print(f"Vocab size: {data['vocabSize']}")
 
@@ -99,7 +100,7 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
         patience=patience,
     )
 
-    best_val_acc = 0.0
+    best_f1 = 0.0
     best_state = None
 
     for epoch in range(epochs):
@@ -125,6 +126,8 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
         correct = 0
         total = 0
         total_loss = 0.0
+        all_preds = []
+        all_targets = []
 
         with torch.no_grad():
             for batch, targets in data["validationLoader"]:
@@ -138,14 +141,19 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
                 preds = logits.argmax(dim=1)
                 total += targets.size(0)
                 correct += (preds == targets).sum().item()
+                all_preds.append(preds.cpu())
+                all_targets.append(targets.cpu())
 
         val_loss = total_loss / total
         val_acc = 100 * correct / total
+        all_preds = torch.cat(all_preds).numpy()
+        all_targets = torch.cat(all_targets).numpy()
+        macro_f1 = f1_score(all_targets, all_preds, average="macro")
 
         scheduler.step(val_loss)
 
-        if val_acc > best_val_acc:
-            best_val_acc = val_acc
+        if macro_f1 > best_f1:
+            best_f1 = macro_f1
             best_state = {
                 k: v.detach().cpu().clone()
                 for k, v in model.state_dict().items()
@@ -157,7 +165,8 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
             f"train loss {train_loss/train_total:.4f} | "
             f"val loss {val_loss:.4f} | "
             f"val acc {val_acc:.2f} | "
-            f"best {best_val_acc:.2f} | "
+            f"macro F1 {macro_f1:.4f} | "
+            f"best F1 {best_f1:.4f} | "
             f"lr {current_lr:.2e}"
         )
 
@@ -165,7 +174,7 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
         model.load_state_dict(best_state)
 
 
-    print(f"Best val acc: {best_val_acc:.2f}%")
+    print(f"Best val macro F1: {best_f1:.4f}")
 
     torch.save({
         "state_dict": model.to("cpu").state_dict(),
