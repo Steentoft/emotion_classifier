@@ -1,3 +1,5 @@
+import os
+
 import torch
 import torch.nn as nn
 
@@ -63,14 +65,18 @@ def main(lr = 0.001, n_heads = 4, n_layers = 4):
     print(f"Best validation accuracy: {best_acc:.2f}%")
     print(f"Number of parameters: {sum(p.numel() for p in model.parameters())}")
 
+    os.makedirs("models", exist_ok=True)
+    save_path = os.path.join("models", "model.pt")
+    if os.path.exists(save_path):
+        os.remove(save_path)
     torch.save({
         "type": "transformer",
         "state_dict": model.to("cpu").state_dict(),
         "mapping": data["mapping"],
         "vocabSize": data["vocabSize"],
         "config": config,
-    }, "model.pt")
-    print("Saved model.pt")
+    }, save_path)
+    print(f"Saved {save_path}")
 
 
 if __name__ == "__main__":

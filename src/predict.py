@@ -18,12 +18,15 @@ def loadModel(path="model.pt", device=None):
     if device is None:
         device = pickDevice()
     ckpt = torch.load(path, map_location="cpu", weights_only=False)
-    mtype = ckpt.get("type", "transformer")
+    if "type" not in ckpt:
+        raise KeyError(f"Checkpoint {path} missing required 'type' field")
+    mtype = ckpt["type"]
     if mtype == "bigru":
-        device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
         model = TextBiGRU(ckpt["vocabSize"], **ckpt["config"])
-    else:
+    elif mtype == "transformer":
         model = TransformerClassifier(ckpt["vocabSize"], **ckpt["config"])
+    else:
+        raise ValueError(f"Unknown checkpoint type {mtype!r} in {path}")
     model.load_state_dict(ckpt["state_dict"])
     model.to(device)
     model.eval()
