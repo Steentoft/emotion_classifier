@@ -11,13 +11,19 @@ from data_prep import (
     MAX_LEN,
 )
 from model1 import TransformerClassifier
+from model2 import TextBiGRU
 
 
 def loadModel(path="model.pt", device=None):
     if device is None:
         device = pickDevice()
     ckpt = torch.load(path, map_location="cpu", weights_only=False)
-    model = TransformerClassifier(ckpt["vocabSize"], **ckpt["config"])
+    mtype = ckpt.get("type", "transformer")
+    if mtype == "bigru":
+        device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+        model = TextBiGRU(ckpt["vocabSize"], **ckpt["config"])
+    else:
+        model = TransformerClassifier(ckpt["vocabSize"], **ckpt["config"])
     model.load_state_dict(ckpt["state_dict"])
     model.to(device)
     model.eval()
@@ -43,8 +49,9 @@ def predict(model, mapping, text, device, maxLength=MAX_LEN, debug=True):
     return LABELS[idx], float(probs[idx].item()), unk
 
 
-def main():
-    model, mapping, device = loadModel()
+def main(path="model.pt"):
+    model, mapping, device = loadModel(path)
+    print(f"Loaded {path}")
     print(f"Using device: {device}")
     while True:
         text = input("Sentence (empty to quit): ").strip()

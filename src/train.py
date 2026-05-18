@@ -64,6 +64,7 @@ def main(lr = 0.001, n_heads = 4, n_layers = 4):
     print(f"Number of parameters: {sum(p.numel() for p in model.parameters())}")
 
     torch.save({
+        "type": "transformer",
         "state_dict": model.to("cpu").state_dict(),
         "mapping": data["mapping"],
         "vocabSize": data["vocabSize"],

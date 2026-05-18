@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from sklearn.metrics import f1_score
 
-from data_prep import loadAndPrep, pickDevice, PAD_ID
+from data_prep import loadAndPrep, PAD_ID
 
 
 def masked_mean_pool(embeddings: torch.Tensor,
@@ -176,11 +176,19 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
 
     print(f"Best val macro F1: {best_f1:.4f}")
 
+    config = {
+        "embed_dim": embed_dim,
+        "hidden_dim": hidden_dim,
+        "num_classes": 6,
+        "dropout": dropout,
+        "num_layers": 2,
+    }
     torch.save({
+        "type": "bigru",
         "state_dict": model.to("cpu").state_dict(),
         "mapping": data["mapping"],
         "vocabSize": data["vocabSize"],
-        "config": data["config"],
+        "config": config,
         }, "model2.pt")
     print("Model saved to model2.pt")
 
