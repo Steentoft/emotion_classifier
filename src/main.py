@@ -21,7 +21,7 @@ def main():
         elif values == "2":
             tm(float(input("lr (float): ")), int(input("n_heads (int): ")), int(input("n_layers (int): ")))
     elif choice == "3":
-        vm()
+        pm()
 
 
 if __name__ == "__main__":
