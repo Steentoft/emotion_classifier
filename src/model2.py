@@ -91,7 +91,13 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
     ).to(device)
 
     opt = optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
-    loss_fn = nn.CrossEntropyLoss()
+
+    num_classes = 6
+    counts = torch.bincount(data["trainY"], minlength=num_classes).float()
+    class_weights = counts.sum() / (num_classes * counts.clamp(min=1))
+    class_weights = class_weights.to(device)
+    print(f"Class weights: {class_weights.tolist()}")
+    loss_fn = nn.CrossEntropyLoss(weight=class_weights)
 
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(
         opt,
