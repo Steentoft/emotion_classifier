@@ -1,7 +1,7 @@
 import os
 import urllib.request
 import zipfile
-
+import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -217,6 +217,8 @@ class TextBiGRU(nn.Module):
         return self.fc(hidden)
 
 
+
+
 def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
          weight_decay=1e-2, patience=2,
          early_stop_patience=5, pretrained=False, glove_dim=100,
@@ -272,6 +274,15 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
     best_f1 = 0.0
     best_state = None
     epochs_no_improve = 0
+
+    history = {
+        "epoch": [],
+        "train_loss": [],
+        "val_loss": [],
+        "val_acc": [],
+        "macro_f1": [],
+        "lr": [],
+    }
 
     for epoch in range(epochs):
         model.train()
@@ -336,9 +347,17 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
             epochs_no_improve += 1
 
         current_lr = opt.param_groups[0]["lr"]
+        avg_train_loss = train_loss / train_total
+        history["epoch"].append(epoch + 1)
+        history["train_loss"].append(avg_train_loss)
+        history["val_loss"].append(val_loss)
+        history["val_acc"].append(val_acc)
+        history["macro_f1"].append(macro_f1)
+        history["lr"].append(current_lr)
+
         print(
             f"Epoch {epoch+1:3d} | "
-            f"train loss {train_loss/train_total:.4f} | "
+            f"train loss {avg_train_loss:.4f} | "
             f"val loss {val_loss:.4f} | "
             f"val acc {val_acc:.2f} | "
             f"macro F1 {macro_f1:.4f} | "
@@ -382,6 +401,16 @@ def main(lr=1e-3, embed_dim=64, hidden_dim=256, epochs=50, dropout=0.3,
         "config": config,
         }, save_path)
     print(f"Model saved to {save_path}")
+
+    plt.figure()
+    plt.plot(history["epoch"], history["train_loss"], label="Training loss")
+    plt.plot(history["epoch"], history["val_loss"], label="Validation loss")
+    plt.xlabel("Epoch")
+    plt.ylabel("Loss")
+    plt.title("Model 2 training and validation loss")
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
 
 
 if __name__ == "__main__":
