@@ -200,7 +200,7 @@ def evaluate_bert(model, loaders, device):
     print(f"\nTest Loss: {avg_test_loss:.4f}")
     print(f"Test Accuracy: {test_acc:.2f}%")
     print("\nClassification Report:")
-    print(classification_report(all_labels, all_preds, target_names=EMOTION_LABELS))
+    print(classification_report(all_labels, all_preds, labels=list(range(len(EMOTION_LABELS))), target_names=EMOTION_LABELS, zero_division=0))
 
     return all_preds, all_labels, test_acc
 
@@ -275,7 +275,7 @@ def main():
     model, loaders, device, train_losses, val_losses, val_accs = train_bert(
         learning_rate=2e-5,
         batch_size=32,
-        num_epochs=1,
+        num_epochs=3,
         dropout=0.1,
     )
 
